@@ -1,2 +1,6 @@
 flask
 flask-session
+plantuml
+openai
+Pillow
+streamlit
