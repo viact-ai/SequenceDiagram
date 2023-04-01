@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Sequence Diagram generation</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+      
+        <div class="container">
+        <a class="navbar-brand text-light" href="/home">
+          <img src="https://static.wixstatic.com/media/f2078f_4446c334fc2b41e8b436c5f2e42e3589~mv2.png" alt="" width="100" height="100" class="d-inline-block align-text-top me-2 img-fluid position-absolute top-0 start-0">
+        </a>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+      </div>
+    </nav>
+    
+
+  </header>
+  <main>
+
+    <div class="container">
+
+      <h3 style="text-align: center ">Sequence diagram generation tools</h3>
+
+      <form action = "/process" method="post">
+          <div class="form-group">
+            <label for="inputUsecase">Input use case</label>
+            <input type="text" class="form-control input-lg" id="inputUsecase" name = "inputUsecase"  placeholder="Input what you want to generate">
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="inputRequirements">Input Requirements</label>
+            <input type="text" class="form-control" id="inputRequirements" name = "inputRequirements" placeholder="Input requirements for the chart you want to generate">
+          </div>
+          <br>
+          <button type="submit" class="btn btn-outline-primary p-2">Submit</button>
+        </form>
+        <p>
+          <h6>Note:</h6>
+          Support diangrams: Sequence, Usecase, Class, Object, Activity, Component, Deployment, State, Timing, BNF, Gantt, Mindmap, Work Break Down, Entity Relationship... diagrams
+        </p>
+        <div class="container">
+
+          
+        </div>
+        <div class="card text-start">
+          <!-- <img class="card-img-top" src="holder.js/100px180/" alt="Title"> -->
+          <div class="card-body">
+            <!-- <h4 class="card-title">Title</h4> -->
+            <h4 class="card-text">Your generate diagram</h4>
+            <picture>
+              <!-- <source srcset="sourceset" type="image/svg+xml"> -->
+              <img src="data:image/jpeg;base64,{{ imageUrl }}" class="img-fluid mx-auto d-block" alt="">
+              </picture>
+          </div>
+        </div>
+
+  </div>
+
+  </main>
+  <footer>
+    <!-- place footer here -->
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>

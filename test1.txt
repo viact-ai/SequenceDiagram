@@ -1,0 +1,29 @@
+
+
+@startuml
+
+class Deployment_Pipeline {
+  + install()
+  + configure()
+  + execute()
+  + deploy()
+}
+
+class Machine_Learning {
+  + collectData()
+  + modelTraining()
+  + validation()
+  + modelPrediction()
+}
+
+class Entity_Model {
+  + architectureDefinition()
+  + designTesting()
+  + evaluateRequirements()
+  + createEntityClasses()
+}
+
+Deployment_Pipeline o-r Machine_Learning
+Machine_Learning o-r Entity_Model
+
+@enduml
