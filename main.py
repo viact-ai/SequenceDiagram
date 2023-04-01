@@ -15,7 +15,7 @@ server = PlantUML(url='http://www.plantuml.com/plantuml/img/',
                         form_auth={}, http_opts={}, request_opts={})
     
 
-openai.api_key = "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"
+openai.api_key = ""
 
 app = Flask(__name__)
 app.config["SESSION_PERMANENT"] = False
