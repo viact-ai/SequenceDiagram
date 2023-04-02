@@ -10,12 +10,14 @@ from flask_session import Session
 import base64
 import plantuml
 from io import BytesIO
+import os
+
 server = PlantUML(url='http://www.plantuml.com/plantuml/img/',
                         basic_auth={},
                         form_auth={}, http_opts={}, request_opts={})
     
 
-openai.api_key = ""
+openai.api_key = os.getenv("API_KEY")
 
 app = Flask(__name__)
 app.config["SESSION_PERMANENT"] = False
@@ -36,7 +38,7 @@ def home():
 @app.route("/process", methods = ["GET", "POST"])
 def process():
     
-    if openai.api_key == "":
+    if openai.api_key == None:
         flash("No API key, please ask admin")
         return redirect("/home")
 
@@ -63,5 +65,5 @@ def process():
 
 
 if __name__ == '__main__':
-    app.run(debug=True,host='127.0.0.1',port=5000)
+    app.run(debug=False,host='0.0.0.0',port=5000)
 
