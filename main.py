@@ -50,7 +50,7 @@ def process():
         requirements = request.form["inputRequirements"]
 
         uml_string =  get_uml_string(usecase, requirements)
-        check = write_to_txt("test1.txt", uml_string['choices'][0]['text'])
+        # check = write_to_txt("test1.txt", uml_string['choices'][0]['text'])
         try:
 
             svg_bytes = server.processes(uml_string['choices'][0]['text'].replace('\\n', '\n'))
@@ -62,7 +62,52 @@ def process():
         except:
             flash("Can not generate graph base on your requirements")
             return redirect("/home")
+@app.route("/changeApiKey", methods = ["GET", "POST"])
+# @token_required
+def changeApiKey():
+    if request.method == "POST":
+        
+        openai.api_key = request.form["openai_key"]
 
+        return jsonify({
+            "status": "1",
+            "content": "change success"
+        })
+    
+    else:
+        return jsonify({
+            "status": "1",
+            "content": "ping success"
+        })
+
+@app.route("/sequenceReturnUrl", methods = ["GET", "POST"])
+# @token_required
+def get_url_sequence():
+
+    if request.method == "POST":
+
+        usecase = ""
+        requirements = ""
+        usecase = request.form["inputUsecase"]
+        requirements = request.form["inputRequirements"]
+        uml_string =  get_uml_string(usecase, requirements)
+        try:
+            img_url = server.get_url(uml_string['choices'][0]['text'].replace('\\n', '\n'))
+            return jsonify({
+                "status": "1",
+                "content": img_url
+            })
+        except:
+            return jsonify({
+                "status": "0",
+                "content": "No sequence was gen"
+        })
+    
+    else:
+        return jsonify({
+            "status": "1",
+            "content": "ping success"
+        })
 
 if __name__ == '__main__':
     app.run(debug=False,host='0.0.0.0',port=5000)
