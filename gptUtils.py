@@ -13,7 +13,7 @@ def get_uml_string(usecase, requirements):
         prompt='''
                 Can you generate UML diagram for {} with requirements: 
                 {}
-                Return staruml format in 1000 tokens, notice to syntax (Just return UML code)'''
+                Return staruml format in 1000 tokens, notice to syntax, ignore syntax error (Just return UML code)'''
                 .format(usecase, requirements),
         temperature=0.9,
         max_tokens=1000,
