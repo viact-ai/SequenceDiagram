@@ -31,9 +31,12 @@ def start():
 
 @app.route("/home", methods = ["GET", "POST"])
 def home():
-    img_base64 = session["image"]
-    session["image"] = ""
-    return render_template("home.html", imageUrl = img_base64)
+    try:
+        img_base64 = session["image"]
+        session["image"] = ""
+        return render_template("home.html", imageUrl = img_base64)
+    except:
+        return render_template("home.html", imageUrl = "")
 
 @app.route("/process", methods = ["GET", "POST"])
 def process():
