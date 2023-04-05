@@ -52,10 +52,10 @@ def process():
         usecase = request.form["inputUsecase"]
         requirements = request.form["inputRequirements"]
 
-        uml_string =  get_uml_string(usecase, requirements)
+        
         # check = write_to_txt("test1.txt", uml_string['choices'][0]['text'])
         try:
-
+            uml_string =  get_uml_string(usecase, requirements)
             svg_bytes = server.processes(uml_string['choices'][0]['text'].replace('\\n', '\n'))
             base64_bytes = base64.b64encode(svg_bytes)
             base64_string = base64_bytes.decode('utf-8')
@@ -93,8 +93,9 @@ def get_url_sequence():
         requirements = ""
         usecase = request.form["inputUsecase"]
         requirements = request.form["inputRequirements"]
-        uml_string =  get_uml_string(usecase, requirements)
+        
         try:
+            uml_string =  get_uml_string(usecase, requirements)
             img_url = server.get_url(uml_string['choices'][0]['text'].replace('\\n', '\n'))
             return jsonify({
                 "status": "1",
