@@ -63,7 +63,7 @@ def process():
             return redirect("/home")
         except:
             flash("Can not generate graph base on your requirements")
-            return redirect("/")
+            return redirect("/home")
 @app.route("/changeApiKey", methods = ["GET", "POST"])
 # @token_required
 def changeApiKey():
