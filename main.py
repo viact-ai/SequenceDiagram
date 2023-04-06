@@ -33,7 +33,6 @@ def start():
 def home():
     try:
         img_base64 = session["image"]
-        session["image"] = ""
         return render_template("home.html", imageUrl = img_base64)
     except:
         return render_template("home.html", imageUrl = "")
@@ -43,7 +42,7 @@ def process():
     
     if openai.api_key == None:
         flash("No API key, please ask admin")
-        return redirect("/home")
+        return redirect("/")
 
     if request.method == "POST":
 
@@ -64,7 +63,7 @@ def process():
             return redirect("/home")
         except:
             flash("Can not generate graph base on your requirements")
-            return redirect("/home")
+            return redirect("/")
 @app.route("/changeApiKey", methods = ["GET", "POST"])
 # @token_required
 def changeApiKey():
